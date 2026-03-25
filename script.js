@@ -1,11 +1,11 @@
-//let expectedOutput = document.getElementById("expected");
-//let actualOutput = document.getElementById("actual");
+//const expectedOutput = document.getElementById("expected");
+//const actualOutput = document.getElementById("actual");
 
 let expectedOutput = document.getElementById("expected");
 let actualOutput = document.getElementById("actual");
 let compareBtn = document.getElementById("compare-btn");
 let clearBtn = document.getElementById("clear-btn");
-let resultList = document.getElementById("result");
+let result = document.getElementById("result");
 
 //compareBtn.addEventListener(onclick= function () {
   //const expectedTextBox = expectedOutput.value;
@@ -18,7 +18,7 @@ let resultList = document.getElementById("result");
 
 //});
 compareBtn.addEventListener("click", function () {
- resultList.innerHTML = "";
+ result.innerHTML = "";
 
 
   const expectedTextBox = expectedOutput.value;
@@ -27,14 +27,14 @@ compareBtn.addEventListener("click", function () {
  if (expectedTextBox === "") {
   const li = document.createElement("li");
   li.textContent = "The expected output is empty.";
-  resultList.appendChild(li);
+  result.appendChild(li);
   return;
 }
 
 if (actualTextBox === "") {
   const li = document.createElement("li");
   li.textContent = "The actual output is empty.";
-  resultList.appendChild(li);
+  result.appendChild(li);
   return;
 }
 
@@ -57,20 +57,20 @@ li.textContent = "Number of lines differ: Expected = "
   + String(expectedLines.length) 
   + ", Actual = " 
   + String(actualLines.length);
-    resultList.appendChild(li);
-    resultList.className = "change";
+    result.appendChild(li);
+    result.className = "change";
     return;
   }
 if (expectedTextBox !== actualTextBox) {
   const li = document.createElement("li");
   li.textContent = "Texts are different";
-  resultList.appendChild(li);
-  resultList.className = "change";
+  result.appendChild(li);
+  result.className = "change";
 } else {
   const li = document.createElement("li");
   li.textContent = "No differences found";
-  resultList.appendChild(li);
-  resultList.className = "nochange";
+  result.appendChild(li);
+  result.className = "nochange";
 }
 
 
@@ -82,7 +82,7 @@ if (expectedTextBox !== actualTextBox) {
   } else {
     const li = document.createElement("li");
     li.textContent = "No differences found";
-    resultList.appendChild(li);
+    result.appendChild(li);
     
   }
 });
@@ -91,7 +91,7 @@ if (expectedTextBox !== actualTextBox) {
 clearBtn.addEventListener("click", function () {
   expectedOutput.value = "";
   actualOutput.value = "";
-  resultList.innerHTML = "";
-  resultList.className = "";
+  result.innerHTML = "";
+  result.className = "";
 });
 
